@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Backend",
+    "\\Backend\\controllers",
+    "\\Backend\\models",
+    "\\Backend\\views"
+  ],
+  "SelectedNode": "\\Backend\\views\\index.jade",
+  "PreviewInSolutionExplorer": false
+}
