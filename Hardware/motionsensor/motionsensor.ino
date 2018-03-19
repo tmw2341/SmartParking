@@ -1,5 +1,8 @@
+#define NUM_SAMPLES 100
 
 const int pingPin = 7;
+int i = 0;
+int sum = 0;
 
 void setup() {
   Serial.begin(9600);
@@ -7,7 +10,7 @@ void setup() {
 
 void loop() {
   long duration, inches, cm;
-
+  long measurements[NUM_SAMPLES];
   
   pinMode(pingPin, OUTPUT);
   digitalWrite(pingPin, LOW);
@@ -19,16 +22,24 @@ void loop() {
   pinMode(pingPin, INPUT);
   duration = pulseIn(pingPin, HIGH);
 
-  inches = microsecondsToInches(duration);
-  cm = microsecondsToCentimeters(duration);
+  measurements[i] = microsecondsToInches(duration);
+  i++;
+  if(i == NUM_SAMPLES) {
+    sum = 0;
+    for(i = 0; i < NUM_SAMPLES; i++) {
+      sum += measurements[i];
+    }
+    inches = sum/NUM_SAMPLES;
 
-  Serial.print(inches);
-  Serial.print("in, ");
-  Serial.print(cm);
-  Serial.print("cm");
-  Serial.println();
-
-  delay(100);
+    Serial.print(inches);
+    Serial.print("in, ");
+    Serial.print(i);
+    //Serial.print(cm);
+    //Serial.print("cm");
+    Serial.println();
+    i = 0;
+  }
+  delay(10);
 }
 
 long microsecondsToInches(long microseconds) {
@@ -36,6 +47,5 @@ long microsecondsToInches(long microseconds) {
 }
 
 long microsecondsToCentimeters(long microseconds) {
-  
   return microseconds / 29 / 2;
 }
