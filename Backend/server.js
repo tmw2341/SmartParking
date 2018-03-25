@@ -31,6 +31,10 @@ io.on('connection', function (socket) {
   });
 });
 
+//Map Page for displaying lot.
+app.get('/map', function (req, res) {
+    res.render('map');
+});
 
 
 

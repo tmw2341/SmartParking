@@ -6,6 +6,6 @@
     "\\Backend\\models",
     "\\Backend\\views"
   ],
-  "SelectedNode": "\\Backend\\views\\index.jade",
+  "SelectedNode": "\\Backend\\server.js",
   "PreviewInSolutionExplorer": false
 }
