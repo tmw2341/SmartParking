@@ -1,3 +1,7 @@
 .idea/
 .vs/
+<<<<<<< HEAD
 .DS_Store
+=======
+.DS_Store
+>>>>>>> component-communication
