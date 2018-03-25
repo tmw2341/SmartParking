@@ -13,7 +13,6 @@ html(lang="en")
   script(src="https://code.jquery.com/jquery-1.11.1.js")
   script(src="/socket.io/socket.io.js")
   script.
-<<<<<<< HEAD
     var socket = io();
     socket.on('sensor-update', function (data) {
       addText(data);
@@ -31,7 +30,6 @@ html(lang="en")
         spaces.html(spaces.html() + "<li id='space-" + obj.id + "'>" + obj.id + ": " + obj.status + "</li><br>");
       }
     }
-=======
       var socket = io();
       socket.on('sensor-update', function (data) {
           addText(data);
@@ -50,5 +48,3 @@ html(lang="en")
           }
       }
 
-
->>>>>>> component-communication

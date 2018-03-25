@@ -26,7 +26,6 @@ html(lang="en")
       m.val('');
     }
     socket.on('sensor-update', function(data){
-<<<<<<< HEAD
       addText(data);
     });
 
@@ -35,7 +34,6 @@ html(lang="en")
       var msgs = $('#messages');
       msgs.html(msgs.html() + "<li>" + txt + "</li><br>");
     }
-=======
         addText(data);
     });
 
@@ -44,4 +42,3 @@ html(lang="en")
         var msgs = $('#messages');
         msgs.html(msgs.html() + "<li>" + txt + "</li><br>");
     }
->>>>>>> component-communication
