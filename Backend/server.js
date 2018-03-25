@@ -22,13 +22,11 @@ app.use("/styles", express.static( path.join(__dirname, "../Frontend/styles")));
  */
 //Landing page
 app.get('/', function(req, res){
-  console.log(__dirname);
   res.render('home');
 });
 
 app.put('/sensor', function(req, res){
   var sensor = req.body;
-  console.log(sensor);
   io.sockets.emit('sensor-update', sensor);
   res.send('Success');
 });
@@ -37,7 +35,7 @@ io.on('connection', function (socket) {
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });
-  socket.on('chat message', function(msg){
+  socket.on('receive-event', function(msg){
     console.log('message: ' + msg);
   });
 });
