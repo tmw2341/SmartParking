@@ -1,4 +1,4 @@
-Welcome to WeBagJScript's SmartParking system.\n
+Welcome to WeBagJScript's SmartParking system.
 It is amazing.
 Probably the best one ever.
 Thank you.
