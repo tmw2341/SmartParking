@@ -12,6 +12,6 @@ User: vm-user
 Pass: niupiawRo4mI  
 
 #### To deploy server
-In vm-user's home directory, enter command: **./run-webagjscripts.sh**
+In vm-user's home directory, enter command: **./run-webagjscripts.sh**  
 Visit url: [se329-webagjscripts.ece.iastate.edu:3000](http://se329-webagjscripts.ece.iastate.edu:3000)  
 
