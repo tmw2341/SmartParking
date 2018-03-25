@@ -3,16 +3,16 @@ var canvas = document.getElementById("mycanvas");
 var ctx = canvas.getContext("2d");
 
 var locations = [
-  new Location(function(){ctx.fillRect(110,100,15,15);}, true),
-  new Location(function(){ctx.fillRect(177,100,15,15);}, true),
-  new Location(function(){ctx.fillRect(244,100,15,15);}, true),
-  new Location(function(){ctx.fillRect(310,100,15,15);}, true),
-  new Location(function(){ctx.fillRect(377,100,15,15);}, true),
-  new Location(function(){ctx.fillRect(110,190,15,15);}, true),
-  new Location(function(){ctx.fillRect(177,190,15,15);}, true),
-  new Location(function(){ctx.fillRect(244,190,15,15);}, true),
-  new Location(function(){ctx.fillRect(310,190,15,15);}, true),
-  new Location(function(){ctx.fillRect(377,190,15,15);}, true)
+  new Location(110,100),
+  new Location(177,100),
+  new Location(244,100),
+  new Location(310,100),
+  new Location(377,100),
+  new Location(110,190),
+  new Location(177,190),
+  new Location(244,190),
+  new Location(310,190),
+  new Location(377,190)
 ];
 
 for(var i=0; i < locations.length; i++){
@@ -33,7 +33,6 @@ function updateMap(data){
 }
 
 function addText(obj) {
-  console.log(obj);
   var space = $('#space-' + obj.id);
   if(space.length > 0){
     space.html(obj.id + ": " + obj.status);
