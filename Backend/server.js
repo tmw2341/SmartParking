@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use("/scripts", express.static( path.join(__dirname, "../Frontend/scripts")));
 app.use("/styles", express.static( path.join(__dirname, "../Frontend/styles")));
+app.use("/images", express.static( path.join(__dirname, "../Frontend/images")));
 
 /**
  |=========================
