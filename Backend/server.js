@@ -3,23 +3,34 @@ var app = express();
 var port = process.env.PORT || 3000;
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
+var bodyParser = require('body-parser');
 
 //Use Jade templating.
-app.set('view engine', 'jade')
+app.set('view engine', 'jade');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 
 /**
  |=========================
  |        Routes          |
  |=========================
-*/
+ */
 //Landing page
 app.get('/', function(req, res){
-  console.log('going to index...')
   res.render('index');
 });
 
 app.get('/test', function(req, res){
   res.render('test');
+});
+
+app.put('/sensor', function(req, res){
+  var sensor = req.body;
+  console.log(sensor);
+  io.sockets.emit('sensor-update', sensor);
+  res.send('Success');
 });
 
 io.on('connection', function (socket) {
@@ -30,7 +41,6 @@ io.on('connection', function (socket) {
     console.log('message: ' + msg);
   });
 });
-
 //Map Page for displaying lot.
 app.get('/map', function (req, res) {
     res.render('map');
