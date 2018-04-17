@@ -3,7 +3,7 @@ import serial, requests
 port = serial.Serial("/dev/ttyUSB0", baudrate=9600, timeout=3.0)
 url = "http://se329-webagjscripts.ece.iastate.edu:3000/sensor"
 occupied = False
-sensor_id = 42 #arbitrary
+sensor_id = 1 #arbitrary
 
 def update():
 	r = requests.put(url, params={"id" : sensor_id, "status" : occupied})
