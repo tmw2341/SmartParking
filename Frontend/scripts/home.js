@@ -15,9 +15,13 @@ var locations = [
   new Location(377,190)
 ];
 
+var sensors = $('#sensors-div').html();
+if(sensors)
+  sensors = JSON.parse(sensors);
+
 for(var i=0; i < locations.length; i++){
-  locations[i].fill();
-  addText({id: i, status: true});
+  locations[i].update(sensors[i]);
+  addText({id: i, status: sensors[i]});
 }
 
 socket.on('sensor-update', function (data) {
@@ -27,9 +31,8 @@ socket.on('sensor-update', function (data) {
 
 function updateMap(data){
   var id = data.id * 1.0; //Convert to number
-  var status = data.status === "true"; //Convert to boolean
   if(id < locations.length && id >= 0)
-    locations[id].update(status); //Update location on map
+    locations[id].update(data.status); //Update location on map
 }
 
 function addText(obj) {
