@@ -16,6 +16,19 @@ app.use("/scripts", express.static( path.join(__dirname, "../Frontend/scripts"))
 app.use("/styles", express.static( path.join(__dirname, "../Frontend/styles")));
 app.use("/images", express.static( path.join(__dirname, "../Frontend/images")));
 
+app.locals.sensors = {
+  0: true,
+  1: true,
+  2: true,
+  3: true,
+  4: true,
+  5: true,
+  6: true,
+  7: true,
+  8: true,
+  9: true
+};
+
 /**
  |=========================
  |        Routes          |
@@ -23,12 +36,13 @@ app.use("/images", express.static( path.join(__dirname, "../Frontend/images")));
  */
 //Landing page
 app.get('/', function(req, res){
-  res.render('home');
+  res.render('home', {sensors: JSON.stringify(app.locals.sensors)});
 });
 
 app.put('/sensor', function(req, res){
   var sensor = req.body;
-  io.sockets.emit('sensor-update', sensor);
+  app.locals.sensors[sensor.id] = sensor.status === "true";
+  io.sockets.emit('sensor-update', {id: sensor.id, status: app.locals.sensors[sensor.id]});
   res.send('Success');
 });
 
