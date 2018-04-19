@@ -41,9 +41,9 @@ app.get('/', function(req, res){
 
 app.put('/sensor', function(req, res){
   var sensor = req.body;
-  app.locals.sensors[sensor.id] = sensor.status === "true";
+  app.locals.sensors[sensor.id] = sensor.status.toLowerCase() === "true";
   io.sockets.emit('sensor-update', {id: sensor.id, status: app.locals.sensors[sensor.id]});
-  res.send('Success');
+  res.send("Sensor status: " + sensor.status + "   Sensor ID: " + sensor.id);
 });
 
 io.on('connection', function (socket) {
