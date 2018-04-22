@@ -1,0 +1,69 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+</script>
+<script src = "login.js"></script>
+
+</head>
+<body>
+        <h2>Login Form</h2>
+<form method="post"  class="formLogin" id="formLogin">
+    <label><b>Username:</b></label>
+    <input type="text"  name="uname"  class="userName" id="uname" placeholder="Enter userName" />
+    <label><b>Password:</b></label>
+    <input type="password" name="pwd"  class="userPwd" id="pwd" placeholder="Enter Password" />
+    <input type="submit" class="loginButton" value="Login" >
+
+
+
+</form>
+
+<style>
+    .formLogin{
+        position: relative;
+        background: #FFFFFF;
+        max-width: 360px;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        margin-top: 50px;
+        height: 250px;
+        padding: 45px;
+        text-align: center;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+input[type=text],input[type = password]{
+    width: 100%;
+    padding: 12px 10px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.loginButton {
+    background-color: rgb(42, 248, 15);
+    color: rgb(10, 10, 10);
+    padding: 14px 20px;
+    margin: 12px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+</style>
+
+
+</body>
+
+
+
+
+
+
+
+
+
+</html>
