@@ -1,3 +1,8 @@
+/*
+ * Model classes for parking spots and parking lots.
+ */
+
+
 class parkingSpot {
     constructor(sensorID) {
         this.sensorID = sensorID;

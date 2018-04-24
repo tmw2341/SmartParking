@@ -1,3 +1,9 @@
+/*
+ * Functions for interacting with the database.
+ */
+
+
+// startup test code
 const sqlite3 = require('sqlite3').verbose();
 let db = openDBCon();
 getAllSensorID(2);
