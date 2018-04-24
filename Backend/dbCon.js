@@ -6,7 +6,7 @@ addSensor(3);
 updateSensor(2, 3, 'F');
 closeDBCon(db);
 
-function addSensor(lotID) {
+function addSensor(lotID) { // add a sensor record to the db
 
     db.run(`INSERT INTO Sensors(lotID) VALUES(?)`, [lotID], function (err) {
         if (err) {
@@ -17,7 +17,7 @@ function addSensor(lotID) {
     return this.lastID;
 }
 
-function updateSensor(lotID, sensorID, signal) {
+function updateSensor(lotID, sensorID, signal) { // update a sensor record in the db
     let data = [signal, sensorID, lotID];
     let sql = `UPDATE Sensors
             SET Status = ?
@@ -33,7 +33,7 @@ function updateSensor(lotID, sensorID, signal) {
     });
 }
 
-function getAllSensorID(lotID) {
+function getAllSensorID(lotID) { // log all sensor IDs in the lot
     let sql = `SELECT DISTINCT SensorID FROM Sensors
             WHERE LotID = `+ lotID + `
            ORDER BY SensorID`;
@@ -48,7 +48,7 @@ function getAllSensorID(lotID) {
     });
 }
 
-function getSensorStatus(lotID, sensorID) { // returns 
+function getSensorStatus(lotID, sensorID) { // get status of a sensor record
     let sql = `SELECT DISTINCT Status FROM Sensors
             WHERE LotID = `+ lotID + `
             AND SensorID = ` + sensorID + `
